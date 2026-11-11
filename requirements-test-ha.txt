@@ -1,0 +1,13 @@
+# Packages for tests/ha, which run the integration inside a test Home Assistant.
+# pytest-homeassistant-custom-component pins Home Assistant itself (2026.2.3 for
+# 0.13.316, the newest that runs on Python 3.13). The rest are the Python
+# requirements of ZHA and the integrations it depends on in that release; the
+# test harness doesn't install them.
+pytest-homeassistant-custom-component==0.13.316
+zha==0.0.90
+serialx==0.6.2
+aiohasupervisor==0.3.3
+aiousbwatcher==1.1.1
+ha-silabs-firmware-client==0.3.0
+pyserial==3.5
+universal-silabs-flasher==0.1.2
