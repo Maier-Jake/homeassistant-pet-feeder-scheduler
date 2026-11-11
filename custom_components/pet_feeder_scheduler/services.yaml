@@ -1,0 +1,66 @@
+set_schedule:
+  fields:
+    device_id:
+      required: true
+      selector:
+        device:
+          multiple: true
+          filter:
+            - integration: zha
+              model: aqara.feeder.acn001
+    meal_1_time:
+      required: true
+      example: "06:10:00"
+      selector:
+        time:
+    meal_1_portions:
+      required: true
+      example: 5
+      selector:
+        number:
+          min: 1
+          max: 10
+          mode: box
+    meal_2_time:
+      example: "12:00:00"
+      selector:
+        time:
+    meal_2_portions:
+      example: 5
+      selector:
+        number:
+          min: 1
+          max: 10
+          mode: box
+    meal_3_time:
+      example: "17:00:00"
+      selector:
+        time:
+    meal_3_portions:
+      example: 5
+      selector:
+        number:
+          min: 1
+          max: 10
+          mode: box
+    meal_4_time:
+      selector:
+        time:
+    meal_4_portions:
+      selector:
+        number:
+          min: 1
+          max: 10
+          mode: box
+    feeder_clock:
+      default: utc
+      selector:
+        select:
+          translation_key: feeder_clock
+          options:
+            - utc
+            - local
+    set_schedule_mode:
+      default: true
+      selector:
+        boolean:

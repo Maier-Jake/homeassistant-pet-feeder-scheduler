@@ -1,0 +1,25 @@
+[project]
+name = "pet-feeder-scheduler"
+version = "0.1.0"
+description = "Home Assistant integration that writes on-device schedules to Aqara Pet Feeder C1s paired with ZHA"
+license = "MIT"
+requires-python = ">=3.13"
+
+[dependency-groups]
+test = ["pytest>=8", "pytest-asyncio", "zigpy", "ruff"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["."]
+asyncio_mode = "auto"
+asyncio_default_fixture_loop_scope = "function"
+
+[tool.ruff]
+target-version = "py313"
+line-length = 88
+
+[tool.ruff.lint]
+select = ["E", "F", "W", "I", "B", "UP", "BLE", "SIM", "RUF"]
+
+[tool.ruff.lint.isort]
+known-first-party = ["pet_feeder_scheduler"]

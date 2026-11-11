@@ -1,0 +1,72 @@
+{
+  "config": {
+    "step": {
+      "user": {
+        "description": "Adds the 'Set feeder schedule' action for Aqara Pet Feeder C1s paired with ZHA. There is nothing to configure."
+      }
+    },
+    "abort": {
+      "single_instance_allowed": "Pet Feeder Scheduler is already set up."
+    }
+  },
+  "selector": {
+    "feeder_clock": {
+      "options": {
+        "utc": "UTC (ZHA default): same time for your pets all year",
+        "local": "Local: write times exactly as entered"
+      }
+    }
+  },
+  "services": {
+    "set_schedule": {
+      "name": "Set feeder schedule",
+      "description": "Writes a daily feeding schedule into the feeder's own memory, replacing its current schedule. The feeder follows it even when Home Assistant is offline.",
+      "fields": {
+        "device_id": {
+          "name": "Feeders",
+          "description": "The Aqara Pet Feeder C1s to write this schedule to."
+        },
+        "meal_1_time": {
+          "name": "Meal 1 time",
+          "description": "Time of the first meal, as your clock reads today."
+        },
+        "meal_1_portions": {
+          "name": "Meal 1 portions",
+          "description": "Portions to dispense for the first meal (1-10)."
+        },
+        "meal_2_time": {
+          "name": "Meal 2 time",
+          "description": "Time of the second meal, as your clock reads today. Leave empty for no meal."
+        },
+        "meal_2_portions": {
+          "name": "Meal 2 portions",
+          "description": "Portions to dispense for the second meal (1-10)."
+        },
+        "meal_3_time": {
+          "name": "Meal 3 time",
+          "description": "Time of the third meal, as your clock reads today. Leave empty for no meal."
+        },
+        "meal_3_portions": {
+          "name": "Meal 3 portions",
+          "description": "Portions to dispense for the third meal (1-10)."
+        },
+        "meal_4_time": {
+          "name": "Meal 4 time",
+          "description": "Time of the fourth meal, as your clock reads today. Leave empty for no meal."
+        },
+        "meal_4_portions": {
+          "name": "Meal 4 portions",
+          "description": "Portions to dispense for the fourth meal (1-10)."
+        },
+        "feeder_clock": {
+          "name": "Feeder clock",
+          "description": "Which clock the feeder runs on. On ZHA it runs on UTC, so meals stay at the same time of day for your pets when daylight saving time changes, and move by an hour on your clock. Choose local only if a test meal showed your feeder uses local time."
+        },
+        "set_schedule_mode": {
+          "name": "Switch to schedule mode",
+          "description": "Also switch the feeder to schedule mode. It ignores its schedule in manual mode."
+        }
+      }
+    }
+  }
+}
